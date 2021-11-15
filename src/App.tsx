@@ -1,31 +1,30 @@
 import { useRef, useState } from 'react';
 import { useHeartRate } from './hooks/useHeartRate';
-import PolarChart from './components/charts/PolarChart';
 import { usePolar } from './hooks/usePolar';
-import './App.css';
-import LineChart from './components/charts/LineChart';
-import useStats from './hooks/useStats';
-import useActivities from './hooks/useActivities';
-import Input from './components/Input';
 import handleFileChange from './utils/handleFileChange';
+import useActivities from './hooks/useActivities';
+import useStats from './hooks/useStats';
+import Input from './components/Input';
+import PolarChart from './components/charts/PolarChart';
+import LineChart from './components/charts/LineChart';
+import './App.css';
 
 const App: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
-  const [activityIndex, setActivityIndex] = useState(0);
-  const { activities } = useActivities(file);
-
   const [windDirection, setWindDirection] = useState(0);
   const [tackAngle, setTackAngle] = useState(25);
   const [gybeAngle, setGybeAngle] = useState(160);
 
-  const { x, y } = useHeartRate(activities[activityIndex]);
+  const { activities } = useActivities(file);
+
+  const { x, y } = useHeartRate(activities[0]);
   const { r, theta } = usePolar(
-    activities[activityIndex],
+    activities[0],
     windDirection,
     tackAngle,
     gybeAngle
   );
-  const { stats } = useStats(activities[activityIndex]);
+  const { stats } = useStats(activities[0]);
 
   const polarDivRef = useRef<HTMLDivElement | null>(null);
   const lineDivRef = useRef<HTMLDivElement | null>(null);
