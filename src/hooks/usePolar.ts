@@ -39,7 +39,8 @@ export const usePolar = (
       const prevData = dataFrame
         .filter((point) => point.bearing === a.bearing)
         .sort((a, b) => (b.speed as number) - (a.speed as number));
-      filteredDataFrame[prevData[0].bearing] = prevData[0].speed as number;
+      return (filteredDataFrame[prevData[0].bearing] = prevData[0]
+        .speed as number);
     });
 
     setR(Object.values(filteredDataFrame));
