@@ -7,7 +7,7 @@
   <h3 align="center">Raspberry Pi</h3>
 
   <p align="center">
-    Raspberry Pi home media server.
+    Sailing Polar Plot
     <br />
     <a href="https://github.com/LucasACH/sailing-polar-plot-js"><strong>Explore the docs »</strong></a>
   </p>
@@ -17,7 +17,7 @@
 
 # DEMO
 
-https://sailing-polar-plot-js.vercel.app/
+https://sailing-polar-plot-js.lucasachaval.com
 
 # Getting Started with Create React App
 
